@@ -21,4 +21,12 @@ Things you may want to cover:
 
 * Deployment instructions
 
+####Fix bcrypt bug in Windows.
+```
+cd <Ruby Home>\lib\ruby\gems\<Version>\gems\bcrypt-3.1.10-x86-mingw32\ext\mri  
+ruby extconf.rb
+C:\<DevKit Path>\devkitvars.bat 
+make install
+```
+
 * ...

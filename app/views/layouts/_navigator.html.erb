@@ -1,6 +1,10 @@
+<% if logged_in? %>
+  <div id="sidebar">
     <ul>
-       <li><a href="#">Home</a></li>
-       <li><a href="#">Explore</a></li>
-       <li><a href="#">Users</a></li>
-       <li><a href="#">Sign Out</a></li>
+      <li><%= link_to "Projects", projects_path %></li>
+      <li><%= link_to "Users",    users_path %></li>
+      <li><%= link_to "Profile" , current_user %></li>
+      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
      </ul>
+   </div>
+<% end %>
