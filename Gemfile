@@ -11,14 +11,13 @@ gem 'faker'
 gem 'bootstrap-sass', '3.3.6'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bcrypt-ruby', '3.1.5', :require => 'bcrypt'
-gem 'puma', '~> 3.7'
+gem 'puma'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate',           '3.1.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails' 
 gem 'jbuilder', '~> 2.5'
-gem 'wdm' , '>= 0.1.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.12'
@@ -40,3 +39,4 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'wdm' , '>= 0.1.0' , platforms: [:mingw, :mswin, :x64_mingw ]

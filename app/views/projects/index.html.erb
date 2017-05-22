@@ -1,11 +1,21 @@
-<% provide(:title, 'All projects') %>
+<% provide(:title, 'All Projects') %>
 <h1>Projects</h1>
 
 <%= will_paginate %>
 
-<ul class="projects">
-  <%= render @projects %>
+<ul class="product-list">
+  <% @projects.each do |project| %> 
+      <li class='product-list'>
+        <div class='table'>
+            <div class='image'>       <%= image_for project %> </div>
+            <div class='title'>    
+                 <span><%= project.name %></span><br> 
+                 <span class='description'>   <%= project.description %></span> </div>
+            <div class='stats'>  <<TODO>>     </div>
+            <div class='tools'>  <<TODO>>     </div>
+        </div>
+      </li>
+  <% end %>
 </ul>
 
 <%= will_paginate %>
-
