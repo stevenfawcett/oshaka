@@ -1,0 +1,7 @@
+<li>
+  <div class='name'>      <%= @user.name %> </div>
+  <div class='email'>     <%= @user.email %> </div>
+  <% if current_user.admin?  %>
+       <%= link_to "delete", project, method: :delete, data: { confirm: "You sure?" } %>
+  <% end %>
+</li>
