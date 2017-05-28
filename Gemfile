@@ -20,7 +20,6 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.12'
   gem 'byebug',  '9.0.0', platform: :mri
 end
 
@@ -40,3 +39,8 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'wdm' , '>= 0.1.0' , platforms: [:mingw, :mswin, :x64_mingw ]
+
+gem 'unicorn'
+gem 'pg'
+gem 'sidekiq'
+gem 'redis-rails'
