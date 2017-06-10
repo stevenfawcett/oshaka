@@ -1,21 +1,30 @@
 <% provide(:title, 'All Projects') %>
 <h1>Projects</h1>
 
-<%= will_paginate %>
-
-<ul class="product-list">
+ 
+<table cellspacing='0'> <!-- cellspacing='0' is important, must stay -->
+	<!-- Table Header -->
+	<thead>
+		<tr>
+			<th></th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<!-- Table Header -->
+    <!-- Table Body -->
+	<tbody>	
   <% @projects.each do |project| %> 
-      <li class='product-list'>
-        <div class='table'>
-            <div class='image'>       <%= image_for project %> </div>
-            <div class='title'>    
-                 <span><%= project.name %></span><br> 
-                 <span class='description'>   <%= project.description %></span> </div>
-            <div class='stats'>  <<TODO>>     </div>
-            <div class='tools'>  <<TODO>>     </div>
-        </div>
-      </li>
-  <% end %>
-</ul>
-
+    	<tr>
+			<td><%= image_for project %></td>
+			<td><%= project.name     %></td>
+		    <td><%= project.description %></td>
+			<td><%= link_to image_tag("view.svg" , title: "Project Details" , size: 18 ), project_path(project) %></td>
+		</tr><!-- Table Row -->
+    <% end %>
+    </tbody>
+    <!-- Table Body -->
+ </table>  
+  
 <%= will_paginate %>

@@ -15,7 +15,7 @@ module Oshaka
     desc "start", "Starts the server in style!"
     method_option :job_path, :desc => "Specify the directory where jobs are stored"
     def start(*args)
-      port_option = args.include?('-p') ? '' : ' -p 3030'
+      port_option = args.include?('-p') ? '' : ' -p 3000'
       args = args.join(' ')
       command = "bundle exec thin -R config.ru start#{port_option} #{args}"
       command.prepend "export JOB_PATH=#{options[:job_path]}; " if options[:job_path]

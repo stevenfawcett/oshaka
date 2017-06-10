@@ -1,19 +1,31 @@
 <% provide(:title, 'Users') %>
 <h1>Users</h1>
-
+<h2>A list of all Users.</h2>
 <%= will_paginate %>
 
-<ul class="user-list">
-  <% @users.each do |user| %>
-      <li class='user-list'>
-        <div class='table'>
-            <div class='name'>      <%= user.name %> </div>
-            <div class='email'>     <%= user.email %> </div>
-            <div class='view'>      <%= link_to image_tag("view.svg" , title: "View User" , size: 32 ), user_path(user) %> </div>
-        </div>
-      </li>
-  <% end %>
-</ul>
-
+<table cellspacing='0'> <!-- cellspacing='0' is important, must stay -->
+	<!-- Table Header -->
+	<thead>
+		<tr>
+			<th>UserName</th>
+			<th>Email</th>
+			<th>Admin</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<!-- Table Header -->
+    <!-- Table Body -->
+	<tbody>	
+    <% @users.each do |user| %>
+    	<tr>
+			<td><%= user.name %></td>
+			<td><%= user.email %></td>
+		    <td><%= user.admin %></td>
+			<td><%= link_to image_tag("view.svg" , title: "User Details" , size: 18 ), user_path(user) %></td>
+		</tr><!-- Table Row -->
+    <% end %>
+    </tbody>
+    <!-- Table Body -->
+ </table>   
 <%= will_paginate %>
 
