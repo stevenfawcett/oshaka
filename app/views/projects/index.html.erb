@@ -1,30 +1,33 @@
-<% provide(:title, 'All Projects') %>
+<% provide(:title, 'Projects') %>
 <h1>Projects</h1>
 
+<div>
+   <%= link_to "New Project", new_project_path , { :class=>"btn" }  %>
+</div> 
  
-<table cellspacing='0'> <!-- cellspacing='0' is important, must stay -->
-	<!-- Table Header -->
-	<thead>
-		<tr>
-			<th></th>
-			<th>Name</th>
-			<th>Description</th>
-			<th>Actions</th>
-		</tr>
-	</thead>
-	<!-- Table Header -->
-    <!-- Table Body -->
-	<tbody>	
-  <% @projects.each do |project| %> 
-    	<tr>
-			<td><%= image_for project %></td>
-			<td><%= project.name     %></td>
-		    <td><%= project.description %></td>
-			<td><%= link_to image_tag("view.svg" , title: "Project Details" , size: 18 ), project_path(project) %></td>
-		</tr><!-- Table Row -->
+ <%= will_paginate %>
+
+    <div class="container">
+        <div class="row">
+			<div class="col-xs-2 col-sm-2">Name</div>
+			<div class="col-xs-2 col-md-2">State</div>
+			<div class="col-xs-1 col-sm-1">Actions</div>
+		</div>
+    </div>
+
+	<ul></ul>
+
+	<div class="container">
+    <% @projects.each do |project| %>
+        <div class="row">
+			<div class="col-xs-2 col-sm-2"><%= project.name  %></div>
+			<div class="col-xs-2 col-md-2"><%= project.active %></div>
+			<div class="col-xs-1 col-sm-1"><%= link_to image_tag("view.svg" , title: "Project Details" , size: 18 ), project_path(project) %>
+  		                                   <%= link_to image_tag("edit.svg" , title: "Edit Project"    , size: 18 ), edit_project_path(project) %></div>
+		</div>
     <% end %>
-    </tbody>
-    <!-- Table Body -->
- </table>  
+    </div>
   
 <%= will_paginate %>
+ 
+ 

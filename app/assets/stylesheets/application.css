@@ -26,6 +26,33 @@
 
 /* universal */
 
+/* CSS used here will be applied after bootstrap.css */
+.jumbotron{
+  background-image:url("butler.jpg") ;
+  color:#fff;
+  background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.jumbotron h1{
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+  background: transparent;
+}
+
+.jumbotron h2{
+  font-size:1em;
+  letter-spacing: -1px;
+  background: transparent;
+  color: #FFFFFF;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+
 body {
   padding-top: 60px;
   height: 100%;
@@ -62,15 +89,24 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  background: rgba(52, 153, 70, 0.15);
+  border-radius: 1.5em;
+  line-height: 50px;
+  text-align: center;
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size:1.5em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
+  line-height: 30px;
   color: #777;
+  background: rgba(52, 153, 70, 0.10);
+  border-radius: 15px;
+  margin: 0 0 2em;
+  display: inline-block;
+  width: 250px;
 }
 
 p {
