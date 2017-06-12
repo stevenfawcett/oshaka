@@ -1,4 +1,4 @@
 class Project < ApplicationRecord
-     has_many :projects_users
-     has_many :users , :through => :projects_users
+     has_many :collaborations
+     has_many :users , :through => :collaborations
 end

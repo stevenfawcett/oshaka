@@ -10,5 +10,13 @@
   <%= @project.active %>
 </p>
 
+ <div class="container">
+    <% @project.users.each do |user| %>
+        <div class="row">
+			<div class="col-xs-2 col-sm-2"><%= user.name %></div>
+		</div>
+    <% end %>
+    </div>		
+    
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
