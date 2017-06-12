@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user,  only: [:destroy , :edit, :update, :new ]
 
   # GET /projects
   # GET /projects.json
@@ -71,4 +72,10 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:name, :active)
     end
+
+    # Confirms an admin user.
+    def admin_user
+       redirect_to( projects_url ) unless current_user.admin?
+    end
+    
 end
