@@ -16,7 +16,4 @@ module UsersHelper
     end
   end
   
-  def Projects( user )
-    return user.
-  end
 end
