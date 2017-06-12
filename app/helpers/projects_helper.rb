@@ -1,5 +1,5 @@
 module ProjectsHelper
-  # Returns the Gravatar for the given user.
+
   def image_for(project)
     image = project.icon.presence  || "test.png"
     image_tag( image , alt: project.name, size: "32"  )
