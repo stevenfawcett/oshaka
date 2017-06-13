@@ -1,0 +1,56 @@
+<style type="text/css">  
+     select { 
+         width:300px; 
+            } 
+     .span  {
+         display: table-cell;
+         vertical-align: middle;
+            }
+.knob {
+  display: table;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+</style>
+
+<div class="row" >
+	<div class="col-xs-5 col-sm-5" style="height:35px" >
+        <h2> Available </h2>
+	</div>
+	<div class="col-xs-2 col-sm-2" style="height:35px">
+	</div>
+	<div class="col-xs-5 col-sm-5" style="height:35px">
+        <h2> Selected </h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-5 col-sm-5" >
+		<%= form_for( @user ) do |a| %>
+		     <%= a.select(:available  , 
+		                   options_from_collection_for_select(Project.all - @user.projects , :id, :name , {} ),
+		                   { :prompt => nil },
+		                   { :multiple => true, :size => 20 , :id => "available" }) %>
+	</div>
+	
+	<div class="col-xs-2 col-sm-2" style="height:350px" >
+             <div class="knob" >
+                <% if edit_mode %>
+                      <span class="span"> 
+                                 <%= a.submit "<<", name: 'move' , value: '<<',   class: "btn btn-primary" %>
+                      </span>
+                      <span class="span"> 
+                                 <%= a.submit ">>", name: 'move' , value: '>>',  class: "btn btn-primary" %>
+                      </span>
+		<% end %>
+             </div>
+        </div>
+
+	<div class="col-xs-5 col-sm-5"  >
+		     <%= a.select(:selected  , 
+		                   options_from_collection_for_select(@user.projects, :id, :name  , {} ),
+		                   { :prompt =>  nil },
+		                   { :multiple => true, :size => 20 , :id => "selected"  } ) %>
+		<% end %>
+	</div>
+</div>

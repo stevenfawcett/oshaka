@@ -32,15 +32,40 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def resolve_changes( format )
+
+        if params[:move] == '>>'
+             params[:user][:available].each do | add_project |
+                    @user.collaborations.create( project_id: add_project ) unless add_project.empty?
+                    format.html { redirect_to notice: 'User Added' , action: "edit" , id: @user.id  }
+             end
+             format.html { redirect_to  action: "edit" , id: @user.id  }
+        end
+
+        if params[:move] == '<<'
+             params[:user][:selected].each do | rm_project |
+                    c = @user.collaborations.where( project_id: rm_project).first unless rm_project.empty?
+                    c.destroy unless c.nil?
+                    format.html { redirect_to notice: 'User Removed' , action: "edit" , id: @user.id  }
+             end
+             format.html { redirect_to  action: "edit" , id: @user.id  }
+        end
+  end
+
   def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
-      redirect_to @user
-    else
-      render 'edit'
+
+    respond_to do |format|
+      if @user.update( user_params )
+        resolve_changes( format )
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
+
 
   def destroy
     User.find(params[:id]).destroy

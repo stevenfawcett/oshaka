@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
+  attr_accessor :available ,  :selected
   before_save   :downcase_email
   before_create :create_activation_digest
   validates :name, presence: true, length: { maximum: 50 }
@@ -73,6 +74,22 @@ class User < ApplicationRecord
   # Returns a user's status feed.
   def feed
   end
+
+
+       def available
+           @available
+       end
+       def available=(val)
+            @available = val
+       end
+
+       def selected
+           @selected
+       end
+       def selected=(val)
+            @selected = val
+       end
+
 
   private
 

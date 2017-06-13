@@ -15,5 +15,16 @@ module UsersHelper
       return "User"
     end
   end
+
+  def edit_mode
+      logger.debug self.action_name
+
+      if self.action_name == "show"
+           return false
+      end
+
+      return true
+  end
+
   
 end
