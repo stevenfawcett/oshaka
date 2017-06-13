@@ -1,26 +1,5 @@
+<% provide(:title, 'Projects') %>
 <h1>Editing Project</h1>
 
-<style type="text/css">  select { width:300px; } </style>
+ <%= render 'projects/manage' %>
 
-<div class="center container">
-	<div class="col-xs-4 col-sm-4" >
-		<%= form_for(@project) do |a| %>
-		     <%= a.select(:users  , 
-		                   options_from_collection_for_select(User.all - @project.users , :id, :name , {} ),
-		                   { :prompt => nil },
-		                   { :multiple => true, :size => 20 } ) %>
-		<% end %>
-	</div>
-	
-	<div class="col-xs-4 col-sm-4" >
-		<%= form_for(@project) do |r| %>
-		     <%= r.select(:users  , 
-		                   options_from_collection_for_select(@project.users, :id, :name  , {} ),
-		                   { :prompt =>  nil },
-		                   { :multiple => true, :size => 20 } ) %>
-		<% end %>
-	</div>
-</div>
-
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>

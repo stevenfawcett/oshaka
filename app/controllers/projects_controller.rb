@@ -38,11 +38,33 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def resolve_changes( format )
+       
+        if params[:move] == '>>' 
+	     params[:project][:available].each do | add_user |
+                    @project.collaborations.create( user_id: add_user ) unless add_user.empty?
+                    format.html { redirect_to notice: 'User Added' , action: "edit" , id: @project.id  }
+             end
+             format.html { redirect_to  action: "edit" , id: @project.id  }
+        end 
+
+        if params[:move] == '<<' 
+	     params[:project][:selected].each do | rm_user |
+                    c = @project.collaborations.where( user_id: rm_user).first unless rm_user.empty?
+                    c.destroy unless c.nil?
+                    format.html { redirect_to notice: 'User Removed' , action: "edit" , id: @project.id  }
+             end
+             format.html { redirect_to  action: "edit" , id: @project.id  }
+        end 
+  end
+
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+
     respond_to do |format|
       if @project.update(project_params)
+        resolve_changes( format )
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
@@ -70,7 +92,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :active)
+      params.require(:project).permit(:name, :active , :available , :selected)
     end
 
     # Confirms an admin user.
