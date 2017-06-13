@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: 
+  apikey: MyString
+  ,: MyString
+  url: MyString
+  ,: MyString
+  name: MyString
+
+two:
+  username: 
+  apikey: MyString
+  ,: MyString
+  url: MyString
+  ,: MyString
+  name: MyString
