@@ -1,5 +1,17 @@
 <% provide(:title, 'Projects') %>
 <h1>Project</h1>
 
- <%= render 'projects/manage' %>
+<div class="container">
+    <% @j.each do |project| %>
+        <div class="row">
+                        <div class="col-xs-2 col-sm-2"><%= project.name  %></div>
+                        <div class="col-xs-2 col-md-2"><%= project.active %></div>
+                        <div class="col-xs-1 col-sm-1"><%= link_to image_tag("view.svg" , title: "Project Details" , size: 18 ), project_path(project) %>
+                                                       <% if current_user.admin  %>
+                                                       <%= link_to image_tag("edit.svg" , title: "Edit Project"    , size: 18 ), edit_project_path(project) %>
+                                                       <% end %> </div>
+                        <div class="col-xs-7 col-sm-7"></div>
+                </div>
+    <% end %>
+</div>
 

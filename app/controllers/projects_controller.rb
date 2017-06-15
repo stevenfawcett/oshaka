@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @j = Jenkins.new.job_list
   end
 
   # GET /projects/new
