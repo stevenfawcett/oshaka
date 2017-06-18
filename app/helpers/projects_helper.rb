@@ -14,6 +14,14 @@ module ProjectsHelper
        end 
   end
 
+  def name(project)
+       if project.active
+          return project.name
+       else
+          return "Deactivated"
+       end 
+  end
+  
   def edit_mode
       logger.debug self.action_name
 

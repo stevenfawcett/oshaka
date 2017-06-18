@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @j = Jenkins.new
+    @Con = Connection.all()
   end
 
   # GET /projects/new

@@ -13,6 +13,7 @@ module Oshaka
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.application_name = "Oshaka"
     config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths += %W(#{config.root}/app/models/connections)
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
