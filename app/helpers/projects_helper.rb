@@ -6,6 +6,14 @@ module ProjectsHelper
   end
 
   
+  def indicate(state)
+       if state
+          return "green-tick.png"
+       else
+          return "red-cross.png"
+       end 
+  end
+  
   def status(project)
        if project.active
 	return "Active"
