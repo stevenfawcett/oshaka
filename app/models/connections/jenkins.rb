@@ -3,6 +3,10 @@ require 'jenkins_api_client'
 
 class Jenkins < Connection
   
+  def self.url
+    self.url='https://trello.com'
+  end
+  
   def connect()
     @client = JenkinsApi::Client.new(:server_url => url, 
                                      :username   => username , 
@@ -15,6 +19,10 @@ class Jenkins < Connection
        end 
        
        @client.job.list_all()
+       return true
+       
+   rescue
+         return false
   end
 
 end
