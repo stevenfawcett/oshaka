@@ -12,8 +12,8 @@
     <div class="container">
         <div class="row">
 			<div class="col-xs-2 col-sm-2">Name</div>
-			<div class="col-xs-2 col-md-2">State</div>
-			<div class="col-xs-1 col-sm-1">Actions</div>
+			<div class="col-xs-1 col-md-1">Active</div>
+			<div class="col-xs-2 col-sm-2">Actions</div>
 			<div class="col-xs-7 col-sm-7"></div>
 		</div>
     </div>
@@ -24,8 +24,8 @@
     <% @projects.each do |project| %>
         <div class="row">
 			<div class="col-xs-2 col-sm-2"><%= project.name  %></div>
-			<div class="col-xs-2 col-md-2"><%= project.active %></div>
-			<div class="col-xs-1 col-sm-1"><%= link_to image_tag("view.svg" , title: "Project Details" , size: 18 ), project_path(project) %>
+			<div class="col-xs-2 col-md-1"><%= image_tag( indicate( project.active ) , title: "Pass/Fail"    , size: 18 )  %></div>
+			<div class="col-xs-2 col-sm-2"><%= link_to image_tag("view.svg" , title: "Project Details" , size: 18 ), project_path(project) %>
                                                        <% if current_user.admin  %>
   	    	                                       <%= link_to image_tag("edit.svg" , title: "Edit Project"    , size: 18 ), edit_project_path(project) %>
                                                        <% end %> </div>
