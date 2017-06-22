@@ -21,6 +21,6 @@ Rails.application.routes.draw do
    resources :password_resets,     only: [:new, :create, :edit, :update]
    resources :projects,            only: [:new, :create, :edit, :update , :index , :show]
 
-
+  resources :collaborations,       only: [ :index , :show]
 end
 

@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Connections</h2>
+    <div class="container">
+        <div class="row">
+			<div class="h4 col-xs-2 col-sm-2">Type</div>
+			<div class="h4 col-xs-2 col-sm-2">Url</div>
+			<div class="h4 col-xs-2 col-sm-2">UserName</div>
+			<div class="h4 col-xs-2 col-sm-2">Test</div>
+			<div class="h4 col-xs-4 col-sm-4"></div>
+		</div>
+    </div>
+
+	<div class="container">
+	    <% @connections.each do |connect| %>
+	        <div class="row">
+	                        <div class="col-xs-2 col-sm-2"><%= connect.type %></div>
+	                        <div class="col-xs-2 col-sm-2"><%= connect.url %></div>
+	                        <div class="col-xs-2 col-sm-2"><%= connect.username %></div>
+	                        <div class="col-xs-2 col-sm-2"><%= image_tag( indicate( connect.test() ) , title: "Pass/Fail"    , size: 18 )  %></div>
+	                        <div class="col-xs-4 col-sm-7"></div>
+	                </div>
+	    <% end %>
+	        
+	    <div>
+	   <% if current_user.admin  %>
+	   <%= link_to "New Connection", new_connection_path , { :class=>"btn" }  %>
+	   <% end %>
+	</div>
+</div>
+
+
+
+
+
