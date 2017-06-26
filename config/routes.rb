@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get    'settings/index'
-  get    'new_connection',  to: 'settings#new'
-  
+  get    'new_connection',      to: 'settings#new'
+  get    'collaborations',      to: 'collaborations#index'
+  get    'collaborations/:id' , to: 'collaborations#show', as: 'collaboration'
+      
   resources :users do
     member do
     end
@@ -21,6 +23,5 @@ Rails.application.routes.draw do
    resources :password_resets,     only: [:new, :create, :edit, :update]
    resources :projects,            only: [:new, :create, :edit, :update , :index , :show]
 
-  resources :collaborations,       only: [ :index , :show]
 end
 

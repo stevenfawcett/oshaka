@@ -1,6 +1,4 @@
-<% provide(:title, 'Projects') %>
-<h2><%=  name( @colab.project.name )  %></h2>
+<% provide(:title, @colab.project.name) %>
+<h1><%= @colab.project.name %></h1>
 
-
-</div>
-
+  <%= render 'collaborations/navigation' %>

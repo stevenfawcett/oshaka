@@ -1,18 +1,4 @@
 <% provide(:title, '') %>
-<h1>List</h1>
+<h1>Select a Project</h1>
 
-<nav class="">
-	<ul class="nav nav-tabs">
-	 <% @colabs.each do |c| %>
-	      <%= nav_item( c ).html_safe %>
-	<% end %>
-	</ul>
-</nav>
-
-<div id = "myTabContent" class = "tab-content">
-  <% @colabs.each do |c| %>
-   <div id="<%= c.id %>" class = "tab-pane fade" >
-     <%= link_to c.id, collaboration_path(c.id) %>
-   </div>
-  <% end %>
-</div>
+  <%= render 'collaborations/navigation' %>

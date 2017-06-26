@@ -1,13 +1,12 @@
 class CollaborationsController < ApplicationController
   
   def index
-   # @colab =  Collaboration.all.select { | m | m.user.name == current_user.name }
-    @colabs = Collaboration.all
-
+    @colabs =  Collaboration.all.select { | m | m.user.name == current_user.name }
   end
-  
+    
   def show
-    @colab = Collaboration.find(params[:id])  
+    @colabs =  Collaboration.all.select { | m | m.user.name == current_user.name }
+    @colab = Collaboration.find(params[:id]) 
   end
   
   private

@@ -1,0 +1,7 @@
+<nav >
+	<ul class="nav nav-tabs">
+	 <% @colabs.each do |c| %>
+	         <li class="<%= 'active' if params[:id] == c.id %>"><%= link_to c.project.name, collaboration_path(c.id) %></li>	      
+	<% end %>
+	</ul>
+</nav>
