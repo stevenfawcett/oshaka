@@ -1,42 +1,41 @@
 <style type="text/css">  
-.knob {
+.outer {
+  display: table;
   height: 200px;
   text-align: center;
-  border-style: solid;
+
 }
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+    border-style: solid;
+    background: green;
+    border-radius: 25px;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+
+}
+
+.space {
+  margin-top: 1em; /* Adjust to your liking */
+  display: block; /* Could also use inline-block */
+}
+
 </style>
 
-
+<span class=space></span>
 <div class="container">
 <div class="row">
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>	  
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>	
+	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>
+	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>
+	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>	  
+	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>
+	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>
+	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>	
 	</div>
-	<div class="row">
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>	  
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>	
-	</div>
-	<div class="row">
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>	  
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>	
-	</div>
-	<div class="row">
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>	  
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>
-	  <div class="col-sm-2 knob" >.col-md-1</div>	
+
 </div>
