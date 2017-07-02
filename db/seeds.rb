@@ -10,3 +10,11 @@ Project.create( id: 1,  name: "Jenkins", active: true , description: "Local Jenk
 
 Collaboration.create( id: 1 , project_id: 1 , user_id: 1 )
 Collaboration.create( id: 2 , project_id: 1 , user_id: 2 )
+
+
+Tasks.create(id: 1 , project_id: 1  )
+Tasks.create(id: 2 , project_id: 1  )
+Task.create( id: 3 , project_id: 1  )
+Task.create( id: 4 , project_id: 1  )
+Task.create( id: 5 , project_id: 1  )
+Task.create( id: 6 , project_id: 1  )

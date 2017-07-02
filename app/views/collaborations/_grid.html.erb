@@ -17,7 +17,6 @@
 .inner {
     margin-left: auto;
     margin-right: auto; 
-
 }
 
 .space {
@@ -29,13 +28,14 @@
 
 <span class=space></span>
 <div class="container">
-<div class="row">
-	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>
-	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>
-	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>	  
-	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>
-	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>
-	  <div class="col-sm-2 outer" ><div class=middle><div class=inner>Foo foo</div></div></div>	
-	</div>
+<% @tasks.in_groups_of(7) do |row| %>
+	  <div class="row space">
+	    <% row.each do |c| %>
+	      <% if not c.nil? %>
+	           <div class="col-sm-2 outer" ><div class=middle><div class=inner><%=  TaskDisplay( c.id ) %></div></div></div>
+	      <% end %>
+	    <% end %>
+	 </div>
+<% end %>
 
-</div>
+
