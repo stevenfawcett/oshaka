@@ -1,4 +1,5 @@
 class Connection < ActiveRecord::Base
+  has_many :tasks
   
      def initialise()
        super
@@ -30,5 +31,8 @@ class Connection < ActiveRecord::Base
     return "Connection FAILED at parent"
   end
   
+  def connected?()
+     return true;
+  end
   
 end

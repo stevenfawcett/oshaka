@@ -2,8 +2,10 @@ module CollaborationsHelper
   
   def active( c )
     html = "<li>"
-    logger.debug( "Paramter input is C #{c.project.id} : Params #{ params[:id] }  #{c.project.id.to_s==params[:id] }"  )
-    if c.project.id.to_s == params[:id]
+    ck = params[:id] 
+    ck = "1" if ck.nil?
+    
+    if c.project.id.to_s == ck
       html = "<li class='active'>"
     end
     return html.html_safe

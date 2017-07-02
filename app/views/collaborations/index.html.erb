@@ -1,5 +1,5 @@
-<% provide(:title, '') %>
-<h1>Select a Project</h1>
+<% provide(:title, @colab.project.name) %>
+<h1><%= @colab.project.name %></h1>
 
   <%= render 'collaborations/navigation' %>
   

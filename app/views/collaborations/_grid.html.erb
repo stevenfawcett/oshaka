@@ -1,38 +1,11 @@
-<style type="text/css">  
-.outer {
-  display: table;
-  height: 200px;
-  text-align: center;
-
-}
-
-.middle {
-    display: table-cell;
-    vertical-align: middle;
-    border-style: solid;
-    background: green;
-    border-radius: 25px;
-}
-
-.inner {
-    margin-left: auto;
-    margin-right: auto; 
-}
-
-.space {
-  margin-top: 1em; /* Adjust to your liking */
-  display: block; /* Could also use inline-block */
-}
-
-</style>
 
 <span class=space></span>
 <div class="container">
 <% @tasks.in_groups_of(7) do |row| %>
 	  <div class="row space">
-	    <% row.each do |c| %>
-	      <% if not c.nil? %>
-	           <div class="col-sm-2 outer" ><div class=middle><div class=inner><%=  TaskDisplay( c.id ) %></div></div></div>
+	    <% row.each do |task| %>
+	      <% if not task.nil? %>
+	           <div class="col-sm-2 outer" ><%= TaskDisplay( task ) %></div>
 	      <% end %>
 	    <% end %>
 	 </div>

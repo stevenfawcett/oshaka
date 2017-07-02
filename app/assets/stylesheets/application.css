@@ -271,3 +271,29 @@ footer ul li {
       .main-content #sidebar-toggle .bar:last-child{
            margin-bottom: 0;   
       }
+ 
+.outer {
+  display: table;
+  height: 200px;
+  text-align: center;
+
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+    border-style: solid;
+    border-radius: 25px;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+
+}
+
+.space {
+  margin-top: 1em; /* Adjust to your liking */
+  display: block; /* Could also use inline-block */
+}
+
