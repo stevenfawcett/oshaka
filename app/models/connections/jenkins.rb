@@ -16,6 +16,7 @@ class Jenkins < Connection
   # TestDashBoardContainer_MOJ
 
   def test()    
+
        if @client.nil? 
           connect                  
        end 

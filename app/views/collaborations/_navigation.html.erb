@@ -2,7 +2,7 @@
 	<ul class="nav nav-tabs">
 	 <% @colabs.each do |c| %>
 	    <%= active( c )  %> 
-	    <%= link_to( c.project.name , collaboration_path(c.id)) %> 
+	    <%= link_to( c.project.name , collaboration_path(c)) %> 
 	    </li>
 	<% end %>
 	</ul>

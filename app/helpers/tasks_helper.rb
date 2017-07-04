@@ -1,23 +1,24 @@
 module TasksHelper
   
   def TaskDisplay( task )
+     con = task.connection
      html = ''
-     if task.connection.nil?
+     if con.nil?
        reason = "Connection not configured"
        html << '<div class="middle red">'
      else
        
-       if task.connection.connected?
+       if con.connected?
           html << '<div class="middle green">' 
-          reason = "#{task.connection.type} ( Connected )"
+          reason = "#{con.type} ( Connected )"
        else
           html << '<div class="middle yellow">'
-          reason = "#{task.connection.type} ( Disconnected )"
+          reason = "#{con.type} ( Disconnected )"
        end 
      end
 
      html <<    '<div class=inner>'
-     html <<       "CHEESE #{task.id}"
+     html <<       "#{task.name}"
      html <<       "<li style='list-style-type: none;'>#{reason}</li>" 
      html << '   </div>'
      html << '</div>'
