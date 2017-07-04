@@ -12,7 +12,7 @@ module TasksHelper
           reason = "#{task.connection.type} ( Connected )"
        else
           html << '<div class="middle yellow">'
-          reason = "#{task.connection.type} ( Disonnected )"
+          reason = "#{task.connection.type} ( Disconnected )"
        end 
      end
 

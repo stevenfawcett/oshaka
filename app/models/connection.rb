@@ -25,14 +25,9 @@ class Connection < ActiveRecord::Base
     :apitoken
   end
       
-  # Must have functions
-  # Test
-  def test()
-    return "Connection FAILED at parent"
-  end
   
   def connected?()
-     return true;
+     return test();
   end
   
 end
