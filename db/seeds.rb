@@ -1,20 +1,24 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 
-User.create( id: 1, name: "admin" , email: "admin@me.com" , admin: true  , activated: true, password: "admin123" )
-User.create( id: 2, name: "test1" , email: "test1@me.com" , admin: false , activated: true, password: "test123" )
+User.create( name: "admin" , email: "admin@me.com" , admin: true  , activated: true, password: "admin123" )
+User.create( name: "test1" , email: "test1@me.com" , admin: false , activated: true, password: "test123" )
 
-Jenkins.create( username: "admin"         , apikey: "9f77866cea1ec1928cbba1099af19113" , url: "http://127.0.0.1:8080" )
-Ltrello.create(  username: "stevenfawcett" , apikey: "73aea1df20f7fb157901e5d34f2bf2ff" , apitoken: '11c7b9e0e764c1e7e3bf3c09137f329cb59200eebdb78741c87256fdce550f92' )
+Jenkins.create( username: "admin"                          , apikey: "9f77866cea1ec1928cbba1099af19113" , url: "http://127.0.0.1:8080" )
+Jenkins.create( username: "steven.fawcett@hpe.com"         , apikey: "f4be138e77551be34c77e7bf6c48ef5f" , url: "https://c4t19076.itcs.hpecorp.net:8443" )
+Ltrello.create( username: "stevenfawcett"                  , apikey: "73aea1df20f7fb157901e5d34f2bf2ff" , apitoken: '11c7b9e0e764c1e7e3bf3c09137f329cb59200eebdb78741c87256fdce550f92' )
 
-Project.create( id: 1,  name: "Jenkins", active: true , description: "Local Jenkins Test" )
+Project.create( name: "Jenkins", active: true , description: "Local Jenkins Test" )
+Project.create( name: "Work"  ,  active: true , description: "General Work" 
 
-Collaboration.create( id: 1 , project_id: 1 , user_id: 1 )
-Collaboration.create( id: 2 , project_id: 1 , user_id: 2 )
+Collaboration.create( project: Project.where( name: "Jenkins" ).first , user_id: User.where( name: "admin" ) )
+Collaboration.create( project: Project.where( name: "Jenkins" ).first , user_id: User.where( name: "test1" ) )
+Collaboration.create( project: Project.where( name: "Work" ).first    , user_id: User.where( name: "admin" ) )
+Collaboration.create( project: Project.where( name: "Work" ).first    , user_id: User.where( name: "test1" ) )
 
 
-Task.create( id: 7 , project: project.find(2) , connection: Connection.where( username: "stevenfawcett" ) )
-Task.create( id: 8 , project: project.find(2) , connection: Connection.where( username: "stevenfawcett" ) )
-Task.create( id: 9 , project: project.find(2) , connection: Connection.where( username: "stevenfawcett" ) )
-Task.create( id: 4 , project: project.find(1) , connection: Connection.where( username: "admin" ) )
-Task.create( id: 5 , project: project.find(1) , connection: Connection.where( username: "admin" ) )
-Task.create( id: 6 , project: project.find(1) , connection: Connection.where( username: "admin" ) )
+Trellotask.create( project: Project.where( name: "Jenkins" ).first , connection: Connection.where( username: "stevenfawcett" ).first )
+Trellotask.create( project: Project.where( name: "Jenkins" ).first , connection: Connection.where( username: "stevenfawcett" ).first )
+Trellotask.create( project: Project.where( name: "Jenkins" ).first , connection: Connection.where( username: "stevenfawcett" ).first )
+Jenkinstask.create( project: Project.where( name: "Work" ).first    , connection: Connection.where( username: "admin" ).first )
+Jenkinstask.create( project: Project.where( name: "Work" ).first    , connection: Connection.where( username: "admin" ).first )
+Jenkinstask.create( project: Project.where( name: "Work" ).first    , connection: Connection.where( username: "steven.fawcett@hpe.com" ).first )

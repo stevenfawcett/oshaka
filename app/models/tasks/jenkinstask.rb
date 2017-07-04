@@ -1,0 +1,3 @@
+class Jenkinstask < Task
+end
+

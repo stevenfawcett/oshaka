@@ -1,0 +1,3 @@
+class Trellotask < Task
+end
+

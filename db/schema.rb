@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170702135914) do
+ActiveRecord::Schema.define(version: 20170704085422) do
 
   create_table "collaborations", force: :cascade do |t|
     t.integer "project_id"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20170702135914) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "connection_id"
+    t.string "type"
     t.index ["connection_id"], name: "index_tasks_on_connection_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end

@@ -13,6 +13,7 @@ module Oshaka
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.application_name = "Oshaka"
     config.autoload_paths += %W(#{config.root}/app/models/connections)
+    config.autoload_paths += %W(#{config.root}/app/models/tasks)
     config.autoload_paths += Dir["#{config.root}/lib/"]
     config.assets.enabled = true
     config.assets.paths << Rails.root.join("app", "assets", "config"  )
